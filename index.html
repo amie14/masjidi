@@ -7,131 +7,139 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;700&display=swap" rel="stylesheet">
 
     <style>
-        /* 1. إعدادات أساسية ومتغيرات للألوان والخطوط */
+        /* 1. إعدادات أساسية ومتغيرات */
         :root {
-            --primary-color: #005c97; /* درجة أزرق حديثة */
-            --secondary-color: #363795;
-            --background-color: #f8f9fa; /* خلفية رمادية فاتحة جداً */
-            --text-color: #343a40; /* لون نص داكن مريح للعين */
+            --primary-color: #0d6efd;
+            --text-color: #f8f9fa;
+            --heading-color: #ffffff;
+            --border-color: rgba(255, 255, 255, 0.2);
+            --card-bg-color: rgba(255, 255, 255, 0.1);
             --heading-font: 'Cairo', sans-serif;
             --body-font: 'Cairo', sans-serif;
+        }
+
+        /* 2. الخلفية المتحركة والتصميم الأساسي للجسم */
+        @keyframes gradient-animation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         body, html { 
             margin: 0; 
             padding: 0; 
             font-family: var(--body-font); 
-            background-color: var(--background-color); 
             color: var(--text-color); 
             scroll-behavior: smooth; 
+            background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #134e6e);
+            background-size: 400% 400%;
+            animation: gradient-animation 25s ease infinite;
         }
+
+        /* تأثيرات الدخول للعناصر */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in {
+            animation: fadeIn 1s ease-out forwards;
+        }
+
         .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
         a { text-decoration: none; color: var(--primary-color); }
-        h1, h2, h3 { font-family: var(--heading-font); font-weight: 700; }
+        h1, h2, h3 { font-family: var(--heading-font); font-weight: 700; color: var(--heading-color); }
 
-        /* 2. تحسين الهيدر (Header) */
+        /* 3. الهيدر الزجاجي */
         header { 
-            background-color: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px); /* تأثير زجاجي شفاف */
+            background-color: rgba(20, 20, 20, 0.3);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
             padding: 15px 0; 
-            border-bottom: 1px solid #dee2e6; 
+            border-bottom: 1px solid var(--border-color);
             position: sticky; 
             top: 0; 
             z-index: 1000;
         }
+        .logo { font-size: 26px; font-weight: bold; color: #fff;}
+        nav ul li a { font-size: 16px; font-weight: 500; color: #fff; transition: color 0.3s; }
+        nav ul li a:hover { color: #a7c7e7; }
         nav { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 26px; font-weight: bold; }
         nav ul { list-style: none; margin: 0; padding: 0; display: flex; }
         nav ul li { margin-right: 25px; }
-        nav ul li a { font-size: 16px; font-weight: 500; transition: color 0.3s; }
-        nav ul li a:hover { color: var(--secondary-color); }
 
-        /* 3. تحسين القسم الرئيسي (Hero Section) */
+        /* 4. قسم Hero بتصميم محدث */
         .hero { 
-            background: #fff; 
             text-align: center; 
-            padding: 100px 20px; 
+            padding: 120px 20px;
+            background: transparent;
         }
-        .hero h1 { 
-            font-size: 48px; 
-            margin-bottom: 20px; 
-            color: #1a2533; 
-            line-height: 1.3;
-        }
-        .hero p { 
-            font-size: 18px; 
-            margin-bottom: 35px; 
-            color: #555; 
-            max-width: 650px; 
-            margin-left: auto; 
-            margin-right: auto; 
-            line-height: 1.7; 
-        }
+        .hero h1 { font-size: 52px; margin-bottom: 20px; line-height: 1.3; }
+        .hero p { font-size: 19px; margin-bottom: 40px; max-width: 650px; margin-left: auto; margin-right: auto; line-height: 1.7; color: #ced4da;}
         .hero-buttons .btn { 
-            background-image: linear-gradient(45deg, var(--primary-color), var(--secondary-color)); /* تدرج لوني للزر */
-            color: #fff; 
+            background-color: #fff;
+            color: #0f2027;
             padding: 16px 35px; 
-            border-radius: 8px; /* حواف دائرية أكثر */
+            border-radius: 50px; /* زر دائري بالكامل */
             font-size: 18px; 
-            font-weight: bold; 
+            font-weight: 700; 
             display: inline-block; 
             transition: transform 0.3s, box-shadow 0.3s; 
-            box-shadow: 0 4px 15px rgba(0, 92, 151, 0.2); /* ظل ناعم للزر */
+            border: none;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
         }
         .hero-buttons .btn:hover { 
-            transform: translateY(-3px); /* تأثير حركة للأعلى عند المرور */
-            box-shadow: 0 7px 20px rgba(54, 55, 149, 0.3);
+            transform: translateY(-4px) scale(1.03);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
         }
-        .hero-mockup img { 
-            max-width: 100%; 
-            height: auto; 
-            border-radius: 12px; /* حواف دائرية أكثر */
-            box-shadow: 0 15px 40px rgba(0,0,0,0.12); 
-        }
+        .hero-mockup { margin-top: 60px; }
+        .hero-mockup img { max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 15px 40px rgba(0,0,0,0.2); border: 1px solid var(--border-color); }
 
-        /* 4. تحسين قسم المميزات (Features Section) */
+        /* 5. قسم المميزات بتصميم Glassmorphism */
         .features { padding: 100px 0; text-align: center; }
-        .features h2 { font-size: 40px; margin-bottom: 60px; }
+        .features h2 { font-size: 42px; margin-bottom: 60px; }
         .features-grid { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
         .feature-item { 
-            background: #fff; 
-            padding: 35px; 
-            border-radius: 12px; 
-            box-shadow: 0 8px 25px rgba(0,0,0,0.07); /* ظل أنعم وأوضح */
+            background: var(--card-bg-color);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            padding: 40px 35px; 
+            border-radius: 16px; 
+            border: 1px solid var(--border-color);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
             max-width: 300px; 
-            transition: transform 0.3s, box-shadow 0.3s; /* إضافة حركة ناعمة */
+            transition: transform 0.3s, box-shadow 0.3s;
         }
         .feature-item:hover {
-            transform: translateY(-8px); /* حركة للأعلى */
-            box-shadow: 0 12px 35px rgba(0,0,0,0.1); /* ظل أكبر عند المرور */
+            transform: translateY(-10px);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
-        .feature-item h3 { font-size: 22px; margin-bottom: 15px; }
-        .feature-item p { line-height: 1.7; color: #666; }
+        .feature-item h3 { font-size: 22px; margin-top: 15px; }
+        .feature-item p { line-height: 1.7; color: #ced4da; }
+        .feature-item svg { stroke: #fff; }
 
-        /* 5. تحسين معرض الصور (Gallery Section) */
-        .gallery { padding: 100px 0; background: #fff; }
-        .gallery h2 { text-align: center; font-size: 40px; margin-bottom: 60px; }
+        /* 6. قسم معرض الصور */
+        .gallery { padding: 100px 0; background: rgba(0,0,0,0.1); }
+        .gallery h2 { text-align: center; font-size: 42px; margin-bottom: 60px; }
         .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
         .gallery-grid img { 
             width: 100%; 
             border-radius: 12px; 
-            box-shadow: 0 8px 25px rgba(0,0,0,0.08); 
-            transition: transform 0.3s, box-shadow 0.3s; 
+            transition: transform 0.3s; 
+            border: 1px solid var(--border-color);
         }
-        .gallery-grid img:hover { 
-            transform: scale(1.05); /* تكبير بسيط */
-            box-shadow: 0 15px 40px rgba(0,0,0,0.15); /* ظل أكبر */
-        }
+        .gallery-grid img:hover { transform: scale(1.05); }
 
-        /* 6. تحسين الفوتر (Footer) */
+        /* 7. الفوتر */
         footer { 
-            background-color: #1a2533; 
-            color: #adb5bd; /* لون أفتح قليلاً */
+            background-color: transparent; 
+            color: #adb5bd;
             text-align: center; 
-            padding: 50px 20px; 
+            padding: 50px 20px;
+            border-top: 1px solid var(--border-color);
         }
     </style>
 </head>
@@ -151,7 +159,7 @@
     </header>
 
     <main id="home">
-        <section class="hero">
+        <section class="hero fade-in">
             <div class="container">
                 <h1>برنامج مسجد: الإدارة المتكاملة للمساجد والتبرعات</h1>
                 <p>أداة سطح مكتب بسيطة وقوية لتنظيم بيانات المساجد، متابعة التبرعات، وإصدار التقارير الاحترافية بضغطة زر.</p>
@@ -165,36 +173,30 @@
         </section>
     </main>
 
-    <section id="features" class="features">
+    <section id="features" class="features fade-in">
         <div class="container">
             <h2>أهم المميزات</h2>
             <div class="features-grid">
                 <div class="feature-item">
-                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--primary-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 15px;">
-                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle>
-                    </svg>
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
                     <h3>إدارة مركزية للبيانات</h3>
-                    <p>سجل جميع مساجد منطقتك في قاعدة بيانات SQLite محلية، مع سهولة البحث والتصفية بالاسم، الدائرة، أو البلدية.</p>
+                    <p>سجل جميع مساجد منطقتك في قاعدة بيانات SQLite محلية، مع سهولة البحث والتصفية.</p>
                 </div>
                 <div class="feature-item">
-                     <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--primary-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 15px;">
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline>
-                    </svg>
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
                     <h3>تقارير PDF احترافية</h3>
-                    <p>أنشئ تقارير PDF مفصلة لكل دائرة على حدة، أو تقريراً شاملاً لجميع الدوائر، جاهزة للطباعة والمشاركة.</p>
+                    <p>أنشئ تقارير PDF مفصلة لكل دائرة على حدة، أو تقريراً شاملاً لجميع الدوائر.</p>
                 </div>
                 <div class="feature-item">
-                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--primary-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 15px;">
-                        <path d="M18 20V10"></path><path d="M12 20V4"></path><path d="M6 20V14"></path>
-                    </svg>
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10"></path><path d="M12 20V4"></path><path d="M6 20V14"></path></svg>
                     <h3>لوحة معلومات مرئية</h3>
-                    <p>احصل على نظرة شاملة وفورية على إحصائيات التبرعات ونسب السداد من خلال المخططات البيانية التفاعلية.</p>
+                    <p>احصل على نظرة شاملة وفورية على إحصائيات التبرعات من خلال المخططات البيانية.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="gallery" class="gallery">
+    <section id="gallery" class="gallery fade-in">
         <div class="container">
             <h2>معرض صور البرنامج</h2>
             <div class="gallery-grid">
