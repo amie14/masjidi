@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>برنامج مسجدي - لإدارة المساجد والتبرعات</title>
+    <style>
+        /* CSS Reset and Basic Styles */
+        body, html { margin: 0; padding: 0; font-family: 'Tahoma', sans-serif; background-color: #f4f7f6; color: #333; scroll-behavior: smooth; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        a { text-decoration: none; color: #007bff; }
+
+        /* Header */
+        header { background-color: #fff; padding: 15px 0; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 1000; }
+        nav { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 24px; font-weight: bold; }
+        nav ul { list-style: none; margin: 0; padding: 0; display: flex; }
+        nav ul li { margin-right: 25px; }
+        nav ul li a { font-size: 16px; font-weight: 500; transition: color 0.3s; }
+        nav ul li a:hover { color: #0056b3; }
+
+        /* Hero Section */
+        .hero { background: #fff; text-align: center; padding: 80px 20px; }
+        .hero h1 { font-size: 42px; margin-bottom: 15px; color: #1a2533; }
+        .hero p { font-size: 18px; margin-bottom: 30px; color: #555; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.6; }
+        .hero-buttons .btn { background-color: #007bff; color: #fff; padding: 15px 30px; border-radius: 5px; font-size: 18px; font-weight: bold; display: inline-block; transition: background-color 0.3s; }
+        .hero-buttons .btn:hover { background-color: #0056b3; }
+        .hero-mockup { margin-top: 50px; }
+        .hero-mockup img { max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+
+        /* Features Section */
+        .features { padding: 80px 0; text-align: center; }
+        .features h2 { font-size: 36px; margin-bottom: 50px; }
+        .features-grid { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
+        .feature-item { background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); max-width: 300px; }
+        .feature-item h3 { font-size: 22px; margin-bottom: 10px; }
+        .feature-item p { line-height: 1.6; }
+
+        /* Gallery Section */
+        .gallery { padding: 80px 0; background: #fff; }
+        .gallery h2 { text-align: center; font-size: 36px; margin-bottom: 50px; }
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .gallery-grid img { width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: transform 0.3s; }
+        .gallery-grid img:hover { transform: scale(1.05); }
+
+        /* Footer */
+        footer { background-color: #1a2533; color: #fff; text-align: center; padding: 40px 20px; }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">🕌 مسجدي</div>
+                <ul>
+                    <li><a href="#home">الرئيسية</a></li>
+                    <li><a href="#features">المميزات</a></li>
+                    <li><a href="#gallery">المعرض</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="home">
+        <section class="hero">
+            <div class="container">
+                <h1>برنامج مسجدي: الإدارة المتكاملة للمساجد والتبرعات</h1>
+                <p>أداة سطح مكتب بسيطة وقوية لتنظيم بيانات المساجد، متابعة التبرعات، وإصدار التقارير الاحترافية بضغطة زر.</p>
+                <div class="hero-buttons">
+                    <a href="YOUR_GITHUB_RELEASE_LINK_HERE" class="btn">تحميل مجاني لنظام ويندوز</a>
+                </div>
+                <div class="hero-mockup">
+                    <img src="main-screenshot.png" alt="الواجهة الرئيسية لبرنامج مسجدي">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <section id="features" class="features">
+        <div class="container">
+            <h2>أهم المميزات</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <h3>إدارة مركزية للبيانات</h3>
+                    <p>سجل جميع مساجد منطقتك في قاعدة بيانات SQLite محلية، مع سهولة البحث والتصفية بالاسم، الدائرة، أو البلدية.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>تقارير PDF احترافية</h3>
+                    <p>أنشئ تقارير PDF مفصلة لكل دائرة على حدة، أو تقريراً شاملاً لجميع الدوائر، جاهزة للطباعة والمشاركة.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>لوحة معلومات مرئية</h3>
+                    <p>احصل على نظرة شاملة وفورية على إحصائيات التبرعات ونسب السداد من خلال المخططات البيانية التفاعلية.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <h2>معرض صور البرنامج</h2>
+            <div class="gallery-grid">
+                <img src="stats-screenshot.png" alt="نافذة الإحصائيات والمخططات">
+                <img src="pdf-report-screenshot.png" alt="نموذج تقرير PDF">
+                <img src="search-screenshot.png" alt="البحث والتصفية في البرنامج">
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 برنامج مسجدي. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
